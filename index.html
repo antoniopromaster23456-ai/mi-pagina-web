@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Katy, mi amor eterno ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #e63946;
+      --primary-light: #ff758f;
+      --bg-dark: #120e16;
+      --bg-card: rgba(255, 255, 255, 0.05);
+      --border-card: rgba(255, 182, 193, 0.25);
+      --text-main: #f8f9fa;
+      --text-muted: #dcd6cd;
+      --accent-gold: #f4a261;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: radial-gradient(circle at top center, #2b121e 0%, var(--bg-dark) 85%);
+      color: var(--text-main);
+      overflow-x: hidden;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Fondo de partículas flotantes */
+    .hearts-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .heart-particle {
+      position: absolute;
+      bottom: -40px;
+      animation: floatUp linear infinite;
+      user-select: none;
+      filter: drop-shadow(0 0 5px rgba(230, 57, 70, 0.5));
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(0.6) rotate(0deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.85;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.3) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 50px 20px 100px;
+    }
+
+    /* Encabezado */
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .tagline {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: var(--primary-light);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.6rem, 7vw, 4.6rem);
+      color: #ffffff;
+      text-shadow: 0 4px 25px rgba(230, 57, 70, 0.6);
+      margin-bottom: 15px;
+    }
+
+    .subtitle {
+      font-family: 'Caveat', cursive;
+      font-size: 2rem;
+      color: var(--accent-gold);
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    /* Contador de Tiempo */
+    .counter-section {
+      background: var(--bg-card);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 30px 20px;
+      margin-bottom: 60px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    .counter-title {
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 22px;
+    }
+
+    .timer-grid {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .time-box {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 16px 22px;
+      min-width: 105px;
+    }
+
+    .time-val {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      display: block;
+    }
+
+    .time-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+    }
+
+    /* Carta Romántica */
+    .letter-card {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(230, 57, 70, 0.08) 100%);
+      border: 1px solid var(--border-card);
+      border-radius: 24px;
+      padding: 50px 36px;
+      margin-bottom: 75px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      position: relative;
+    }
+
+    .letter-header {
+      font-family: 'Caveat', cursive;
+      font-size: 2.6rem;
+      color: var(--accent-gold);
+      margin-bottom: 25px;
+    }
+
+    .letter-body {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      line-height: 2;
+      color: #faece6;
+      text-align: justify;
+    }
+
+    .letter-body p {
+      margin-bottom: 20px;
+    }
+
+    .letter-signature {
+      font-family: 'Caveat', cursive;
+      font-size: 2.2rem;
+      text-align: right;
+      color: var(--primary-light);
+      margin-top: 35px;
+    }
+
+    /* Galería Polaroid */
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.3rem;
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title::after {
+      content: '♥';
+      display: block;
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-top: 6px;
+    }
+
+    .polaroid-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 32px;
+      margin-bottom: 75px;
+    }
+
+    .polaroid-card {
+      background: #ffffff;
+      padding: 14px 14px 22px 14px;
+      border-radius: 4px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+    }
+
+    .polaroid-card:nth-child(even) {
+      transform: rotate(2.5deg);
+    }
+
+    .polaroid-card:nth-child(odd) {
+      transform: rotate(-2.5deg);
+    }
+
+    .polaroid-card:hover {
+      transform: scale(1.05) rotate(0deg);
+      z-index: 10;
+      box-shadow: 0 18px 35px rgba(230, 57, 70, 0.45);
+    }
+
+    .polaroid-img-wrapper {
+      width: 100%;
+      height: 310px;
+      overflow: hidden;
+      background: #111;
+      border-radius: 2px;
+    }
+
+    .polaroid-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .polaroid-card:hover img {
+      transform: scale(1.08);
+    }
+
+    .polaroid-caption {
+      font-family: 'Caveat', cursive;
+      color: #2b2b2b;
+      font-size: 1.6rem;
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* Vídeos */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 30px;
+      margin-bottom: 75px;
+    }
+
+    .video-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 18px;
+      padding: 18px;
+      backdrop-filter: blur(10px);
+    }
+
+    .video-card video {
+      width: 100%;
+      border-radius: 12px;
+      display: block;
+      background: #000;
+      max-height: 480px;
+      object-fit: cover;
+    }
+
+    .video-caption {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      color: var(--accent-gold);
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    /* Botón Interactivo */
+    .interactive-section {
+      text-align: center;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: 20px;
+      padding: 40px 25px;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .btn-heart {
+      background: linear-gradient(45deg, var(--primary), var(--primary-light));
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(230, 57, 70, 0.5);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-heart:hover {
+      transform: translateY(-3px) scale(1.04);
+      box-shadow: 0 10px 28px rgba(230, 57, 70, 0.7);
+    }
+
+    .reasons-box {
+      margin-top: 25px;
+      font-family: 'Caveat', cursive;
+      font-size: 1.9rem;
+      color: var(--accent-gold);
+      min-height: 60px;
+      transition: opacity 0.35s ease;
+    }
+
+    /* Lightbox Modal */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .lightbox.active {
+      display: flex;
+    }
+
+    .lightbox-img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 0 40px rgba(230, 57, 70, 0.35);
+      object-fit: contain;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 25px;
+      right: 35px;
+      font-size: 2.4rem;
+      color: white;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+
+    @media (max-width: 600px) {
+      .letter-card {
+        padding: 30px 20px;
+      }
+      .letter-body {
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+      .timer-grid {
+        gap: 10px;
+      }
+      .time-box {
+        min-width: 70px;
+        padding: 10px;
+      }
+      .time-val {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hearts-container" id="heartsContainer"></div>
+
+  <div class="wrapper">
+    <!-- Encabezado con dedicatoria a Katy -->
+    <header>
+      <div class="tagline">Dedicado con todo mi corazón</div>
+      <h1>Para Mi Katy Hermosa ❤️</h1>
+      <p class="subtitle">"No hay lugar en el mundo donde prefiera estar que a tu lado."</p>
+    </header>
+
+    <!-- Contador de tiempo juntos -->
+    <section class="counter-section">
+      <h2 class="counter-title">Cada segundo a tu lado cuenta...</h2>
+      <div class="timer-grid">
+        <div class="time-box">
+          <span class="time-val" id="days">0</span>
+          <span class="time-label">Días</span>
+        </div>
+        <div class="time-box">
+          <span class="time-val" id="hours">0</span>
+          <span class="time-label">Horas</span>
+        </div>
+        <div class="time-box">
+          <span class="time-val" id="minutes">0</span>
+          <span class="time-label">Minutos</span>
+        </div>
+        <div class="time-box">
+          <span class="time-val" id="seconds">0</span>
+          <span class="time-label">Segundos</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carta de Amor para Katy -->
+    <section class="letter-card">
+      <div class="letter-header">Mi querida Katy,</div>
+      <div class="letter-body">
+        <p>
+          Hacer esta página es solo un pequeño intento de plasmar una fracción de lo mucho que significas para mí. Cada foto y cada recuerdo que ves aquí guarda momentos que no cambiaría por nada en el mundo: desde nuestras risas tontas en cualquier rincón, hasta esos abrazos en los que el tiempo se detiene por completo.
+        </p>
+        <p>
+          Me encanta perderme en tu mirada, escuchar tus ocurrencias y sentir la paz tan bonita que me das con solo tenerte cerca. Eres mi refugio, mi compañera de risas y la dueña de mi corazón. Gracias por ser tan dulce, por hacerme tan feliz y por construir esta historia tan mágica a mi lado.
+        </p>
+        <p>
+          Siempre voy a estar aquí para cuidarte, sacarte una sonrisa y recordarte lo valiosa y especial que eres. Te amo con toda mi alma.
+        </p>
+      </div>
+      <div class="letter-signature">Por siempre tuyo ❤️</div>
+    </section>
+
+    <!-- Galería Polaroid -->
+    <h2 class="section-title">Nuestros Mejores Recuerdos</h2>
+    <div class="polaroid-grid">
+      
+      <div class="polaroid-card" onclick="openLightbox('WhatsApp Image 2026-11-04 at 19.26.16 (3).jpeg')">
+        <div class="polaroid-img-wrapper">
+          <img src="WhatsApp Image 2026-11-04 at 19.26.16 (3).jpeg" alt="Nuestro beso favorito">
+        </div>
+        <div class="polaroid-caption">Donde el mundo se apaga ✨</div>
+      </div>
+
+      <div class="polaroid-card" onclick="openLightbox('WhatsApp Image 2026-11-04 at 19.26.15.jpeg')">
+        <div class="polaroid-img-wrapper">
+          <img src="WhatsApp Image 2026-11-04 at 19.26.15.jpeg" alt="Tus ojitos">
+        </div>
+        <div class="polaroid-caption">Tus ojos que me hipnotizan 👀💕</div>
+      </div>
+
+      <div class="polaroid-card" onclick="openLightbox('WhatsApp Image 2026-11-04 at 19.24.31.jpeg')">
+        <div class="polaroid-img-wrapper">
+          <img src="WhatsApp Image 2026-11-04 at 19.24.31.jpeg" alt="Abrazo cálido">
+        </div>
+        <div class="polaroid-caption">Mi rincón favorito 🧸</div>
+      </div>
+
+      <div class="polaroid-card" onclick="openLightbox('WhatsApp Image 2026-11-04 at 19.26.15 (1).jpeg')">
+        <div class="polaroid-img-wrapper">
+          <img src="WhatsApp Image 2026-11-04 at 19.26.15 (1).jpeg" alt="Descanso juntos">
+        </div>
+        <div class="polaroid-caption">Paz absoluta a tu lado 😴</div>
+      </div>
+
+      <div class="polaroid-card" onclick="openLightbox('WhatsApp Image 2026-11-04 at 19.26.16 (1).jpeg')">
+        <div class="polaroid-img-wrapper">
+          <img src="WhatsApp Image 2026-11-04 at 19.26.16 (1).jpeg" alt="Viajando juntos">
+        </div>
+        <div class="polaroid-caption">De paseo con mi chica favorita 🚗</div>
+      </div>
+
+      <div class="polaroid-card" onclick="openLightbox('WhatsApp Image 2026-11-04 at 19.26.16 (2).jpeg')">
+        <div class="polaroid-img-wrapper">
+          <img src="WhatsApp Image 2026-11-04 at 19.26.16 (2).jpeg" alt="Risas cotidianas">
+        </div>
+        <div class="polaroid-caption">Haciendo locuras siempre 😜</div>
+      </div>
+
+      <div class="polaroid-card" onclick="openLightbox('WhatsApp Image 2026-11-04 at 19.26.16.jpeg')">
+        <div class="polaroid-img-wrapper">
+          <img src="WhatsApp Image 2026-11-04 at 19.26.16.jpeg" alt="Sonrisa de Katy">
+        </div>
+        <div class="polaroid-caption">Esa sonrisa que me enamora 🌸</div>
+      </div>
+
+      <div class="polaroid-card" onclick="openLightbox('WhatsApp Image 2026-11-04 at 19.23.40 (1).jpeg')">
+        <div class="polaroid-img-wrapper">
+          <img src="WhatsApp Image 2026-11-04 at 19.23.40 (1).jpeg" alt="Siempre juntos">
+        </div>
+        <div class="polaroid-caption">Juntos, siempre 🤍</div>
+      </div>
+
+    </div>
+
+    <!-- Vídeos -->
+    <h2 class="section-title">Momentos Especiales</h2>
+    <div class="video-grid">
+      <div class="video-card">
+        <video controls playsinline preload="metadata">
+          <source src="WhatsApp Video 2026-11-04 at 19.26.15 (1).mp4" type="video/mp4">
+        </video>
+        <div class="video-caption">Risas que se quedan para siempre 🎬</div>
+      </div>
+
+      <div class="video-card">
+        <video controls playsinline preload="metadata">
+          <source src="WhatsApp Video 2026-11-04 at 19.26.15.mp4" type="video/mp4">
+        </video>
+        <div class="video-caption">Nuestros instantes mágicos 💖</div>
+      </div>
+    </div>
+
+    <!-- Generador interactivo de motivos -->
+    <section class="interactive-section">
+      <button class="btn-heart" onclick="showNextReason()">
+        <span>Pulsa aquí, Katy ❤️</span>
+      </button>
+      <div class="reasons-box" id="reasonsBox"></div>
+    </section>
+  </div>
+
+  <!-- Visor Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close">&times;</button>
+    <img src="" alt="Foto" class="lightbox-img" id="lightboxImg" onclick="event.stopPropagation()">
+  </div>
+
+  <script>
+    // Configura aquí la fecha en que empezó su historia: (Año, Mes - 1, Día)
+    const startDate = new Date('2024-01-01T00:00:00');
+
+    function updateCounter() {
+      const now = new Date();
+      const difference = now - startDate;
+
+      const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((difference / 1000 / 60) % 60);
+      const seconds = Math.floor((difference / 1000) % 60);
+
+      document.getElementById('days').innerText = days;
+      document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+    }
+    setInterval(updateCounter, 1000);
+    updateCounter();
+
+    // Corazones flotantes
+    const heartsContainer = document.getElementById('heartsContainer');
+    const heartSymbols = ['❤️', '💖', '💕', '✨', '🌸', '💘'];
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart-particle';
+      heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = Math.random() * 20 + 14 + 'px';
+      heart.style.animationDuration = Math.random() * 4 + 4 + 's';
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 8000);
+    }
+    setInterval(createHeart, 450);
+
+    // Razones personalizadas para Katy
+    const reasons = [
+      "Por tu mirada tan linda que me alegra cualquier día.",
+      "Porque tus abrazos me transmiten una paz que no encuentro en nadie más.",
+      "Por cada risa y broma que compartimos juntos.",
+      "Porque haces que cualquier momento simple sea inolvidable.",
+      "Por lo dulce, divertida y especial que eres conmigo.",
+      "Porque a tu lado puedo ser completamente yo mismo.",
+      "¡Por ser tú, Katy, mi chica favorita de todo el mundo!"
+    ];
+    let reasonIndex = 0;
+
+    function showNextReason() {
+      const box = document.getElementById('reasonsBox');
+      box.style.opacity = '0';
+      setTimeout(() => {
+        box.innerText = `"${reasons[reasonIndex]}"`;
+        box.style.opacity = '1';
+        reasonIndex = (reasonIndex + 1) % reasons.length;
+      }, 200);
+    }
+
+    // Modal Lightbox
+    function openLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      lightboxImg.src = src;
+      lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</body>
+</html>
